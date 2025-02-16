@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Operations</title>
+    <style>
+        input[type="text"]
+        {
+            width: 80vw;
+            border-radius: 25px;
+            height: 100px;
+        }
+        textarea
+        {
+            width: 80vw;
+            border-radius: 25px;
+            height: 100px;
+            padding:10px;
+        }
+        body{
+            font-family: Arial;
+        }
+        pre{
+            border: 2px solid black;
+            height: auto;
+            border-radius: 25px;
+            padding: 15px;
+            width: 80vw;
+        }
+        button{
+            padding: 7px;
+            background-color: green;
+            color: white;
+            border-radius: 50px;
+        }
+        button:hover{
+            background-color:rgb(1, 72, 1);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Json Operations</h1>
+    <label for="JSIP">Enter JSON Value here</label>
+    <br>
+    <textarea name="JSIP" id="JSIP" ></textarea>
+    <br>
+    <button onclick="jstoobj()">JSON to Object</button>
+    <pre name="JSONtoObj" id="JSONtoObj">Object value will appear here</pre>
+    <button onclick="jstodate()">JSON to Date</button>
+    <pre name="JSONtoDate" id="JSONtoDate">Date value will appear here</pre>
+    <button onclick="jstocsv()">JSON to CSV</button>
+    <pre name="JSONtoCSV" id="JSONtoCSV">CSV Value will appear here</pre>
+    <hr>
+    
+    <h1>CSV Operation</h1>
+    <label for="CSVIP">Enter CSV Value here</label>
+    <br>
+    <textarea name="CSVIP" id="CSVIP" ></textarea>
+    <br>
+    <button onclick="csvtojson()">CSV to JSON</button>
+    <pre name="CSVtoJSON" id="CSVtoJSON">JSON value will appear here</pre>
+<hr>
+    <h4>Hash Function</h4>
+    <label for="HASHIP">Enter String to hash</label>
+    <br>
+    <input type="text" name="HASHIP" id="HASHIP">
+    <br>
+    <button onclick="hash()">Creat Hash</button>
+    <pre name="HashOP" id="HashOP">Hash value will appear here</pre>
+</body>
+<script>
+function jstoobj()
+{
+    const jsontext=document.getElementById("JSIP").value;
+    try{
+        const jsonobj=JSON.parse(jsontext);
+        document.getElementById('JSONtoObj').textContent=JSON.stringify(jsonobj,null,2);
+    }
+    catch (e)
+    {
+        document.getElementById('JSONtoObj').innerText="Invalid format";
+    }
+}
+function jstodate()
+{
+    const jsontext=document.getElementById('JSIP').value;
+    try{
+        jsonobj=JSON.parse(jsontext);
+        const date=new Date(jsonobj.date);
+        document.getElementById('JSONtoDate').innerText=`${date}`;
+    }
+    catch (e)
+    {
+        document.getElementById('JSONtoDate').innerText="Invalid format";
+    }
+    
+}
+// {"name":"John", "age":30, "date":"2004-05-13"}
+function jstocsv()
+{
+    const jsontext=document.getElementById("JSIP").value;
+    try{
+        jsonobj=JSON.parse(jsontext);
+        const keys=Object.keys(jsonobj);
+        const values=Object.values(jsonobj);
+        document.getElementById('JSONtoCSV').innerText=keys+'\n'+values;
+    }
+    catch (e)
+    {
+        document.getElementById('JSONtoCSV').innerText="Invalid format";
+    }
+}
+function csvtojson()
+{
+    const csvtext=document.getElementById("CSVIP").value;
+    try{
+        const lines=csvtext.split('\n');
+        const keys=lines[0].split(',');
+        const values=lines[1].split(',');
+        const jsonObj={};
+        keys.forEach((key,index) => {
+         jsonObj[key.trim()]   =values[index].trim();
+        });
+        document.getElementById('CSVtoJSON').innerHTML=JSON.stringify(jsonObj,null,2);
+    }
+    catch (e)
+    {
+        document.getElementById('CSVtoJSON').innerText="Invalid format";
+    }
+}
+function hash()
+{
+    const obj=document.getElementById('HASHIP').value;
+    let hash=0;
+    for(let i=0;i<obj.length;i++)
+    {
+        const char=obj.charCodeAt(i);
+        hash=(hash<<5)-hash+char;
+        hash|=0;
+    }
+    document.getElementById('HashOP').innerText=hash.toString();
+}
+</script>
+</html>

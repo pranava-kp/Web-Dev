@@ -1,0 +1,14 @@
+body{
+    margin: 5%;
+}
+button{
+    background-color: green;
+    border-radius: 10px;
+    color:white;
+}
+button:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+    color: black;
+
+}

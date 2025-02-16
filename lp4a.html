@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+</head>
+<body>
+    <form>
+        <label for="name">Name :</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="mailid">Mail Address :</label>
+        <input type="email" id="mailid" name="name">
+        <br>
+        <label for="phone">Phone Number :</label>
+        <input type="tel" id="phone" name="name">
+        <br>
+        <label for="occupation">Occupation :</label>
+        <select name="occupation" id="occupation">
+            <option value="Student">Students</option>
+            <option value="Professional">Professional</option>
+            <option value="others">Others</option>
+        </select>
+        <fieldset>
+            <legend>Topic of Interest</legend>
+            
+            <input type="checkbox" name="checkbox" id="checkbox1">
+            <label for="checkbox1">Box1</label><br>
+
+            <input type="checkbox" name="checkbox" id="checkbox2">
+            <label for="checkbox2">Box2</label><br>
+
+            <input type="checkbox" name="checkbox" id="checkbox3">
+            <label for="checkbox3">Box3</label><br>
+
+        </fieldset>
+        <br>
+            <textarea name="Details" id="deets" cols="30" rows="10">GayMF</textarea>
+            <br>
+            <input type="Submit" value="Register"   >
+    </form>
+</body>
+</html>

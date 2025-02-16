@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+            font-family: Arial;
+            align-items: center;display: flex; 
+            justify-content: center;
+            height: 100vh;
+            
+        }
+        .calculator{
+            /* align-items: center;
+            justify-content: center; */
+            text-align: center;
+            
+            width: 400px;
+            height: auto;
+            background-color: lavender;
+            padding: 10px;
+        }
+        button{
+            background-color: green;
+            border-radius: 5px;
+            padding: 10px;
+            color:white;
+            width:150px;
+            font-size: large;
+            font-weight: bolder;
+            margin: 5px;
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: greenyellow;
+            color:black;
+        }
+        input[type="number"]
+        {
+            font-size:large;
+            font-weight:bolder;
+            padding: 10px;
+            border-radius: 5px;
+            width: 126.8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="calculator">
+        <h1>Simple Calculator</h1>
+        <input type="number" name="val1" id="val1">
+        <input type="number" name="val2" id="val2">
+        <button onclick="performaction('sum')">Sum</button>
+        <button onclick="performaction('diff')">Subract</button>
+        <button onclick="performaction('prod')">Multiply</button>
+        <button onclick="performaction('div')">Divide</button>
+        <button onclick="performaction('rem')">Remainder</button>
+        <button onclick="performaction('pow')">Power</button>
+        <button onclick="performaction('square')">Square</button>
+        <button onclick="performaction('sqrt')">Square Root</button>
+        <br>
+        <h2 id="result">
+            Result is : NULL
+        </h2>
+    </div>
+</body>
+<script>
+    
+    function performaction(op)
+    {
+    
+        let v1=parseFloat(document.getElementById('val1').value);
+        let v2=parseFloat(document.getElementById('val2').value);
+        let result=0;
+        switch(op)
+        {
+            case "sum":
+                result=v1+v2;
+                break;
+            case "diff":
+                result=v1-v2;
+                break;
+            case "prod":
+                result=v1*v2;
+                break;
+            case "div":
+                result=v1/v2;
+                break;
+            case "rem":
+                result=v1%v2;
+                break;
+            case "pow":
+                result=Math.pow(v1,v2);
+                break;
+            case "square":
+                result=Math.pow(v1,2);
+                break;
+            case "sqrt":
+                result=Math.pow(v1,0.5);
+                break;
+            default:
+                result=0;
+        }
+        document.getElementById('result').innerText="Result is : "+ result;
+    }
+</script>
+
+</html>

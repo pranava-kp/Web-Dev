@@ -3,42 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form 1</title>
+    <title>Form</title>
+    <style>
+        *{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 3px;
+
+        }
+        #submit{
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 50px;
+        }
+    </style>
 </head>
 <body>
+    <h2>Personal info</h2>
     <form>
-        <label for="name">Name :</label>
-        <input type="text" id="name" name="name">
-        <br>
-        <label for="mailid">Mail Address :</label>
-        <input type="email" id="mailid" name="name">
-        <br>
-        <label for="phone">Phone Number :</label>
-        <input type="tel" id="phone" name="name">
-        <br>
-        <label for="occupation">Occupation :</label>
-        <select name="occupation" id="occupation">
-            <option value="Student">Students</option>
-            <option value="Professional">Professional</option>
-            <option value="others">Others</option>
-        </select>
-        <fieldset>
-            <legend>Topic of Interest</legend>
-            
-            <input type="checkbox" name="checkbox" id="checkbox1">
-            <label for="checkbox1">Box1</label><br>
-
-            <input type="checkbox" name="checkbox" id="checkbox2">
-            <label for="checkbox2">Box2</label><br>
-
-            <input type="checkbox" name="checkbox" id="checkbox3">
-            <label for="checkbox3">Box3</label><br>
-
-        </fieldset>
-        <br>
-            <textarea name="Details" id="deets" cols="30" rows="10">GayMF</textarea>
-            <br>
-            <input type="Submit" value="Register"   >
+        <table>
+            <tr>
+                <td><label for="fn">name</label></td>
+                <td><input type="text" id="fn" required></td>
+            </tr>
+            <tr>
+                <td><label for="mail">EMAIL</label></td>
+                <td><input type="email" name="mail" id="mail" required></td>
+            </tr>
+            <tr>
+                <td><label for="dob">DOB: </label></td>
+                <td><input type="date" name="dob" id="dob"></td>
+            </tr>
+            <tr>
+                <td><label for="Pwd">Password: </label></td>
+                <td><input type="password" name="Pwd" id="Pwd"></td>
+            </tr>
+            <tr>
+                <td><label for="phno">Phone Number</label></td>
+                <td><input type="tel" name="phno" id="phno" required></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender : </label></td>
+                <td><input type="radio" name="gender" id="female">Male
+                <input type="radio" name="gender" id="female">Female</td>
+            </tr>
+            <tr>
+                <td><label for="course">course</label></td>
+                <td>
+                    <select name="course" id="couse">
+                        <option value="CSE">CSE</option>
+                        <option value="ISE">ISE</option>
+                        <option value="" selected hidden disabled>Select a course</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="hobby">Hobbies :</label></td>
+                <td>
+                    <input type="checkbox" name="Sports" id="hobby">Sports
+                    <input type="checkbox" name="Music" id="hobby">Music
+                    <input type="checkbox" name="Reading" id="hobby">Reading
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Address">Address : </label></td>
+                <td><textarea name="Address" id="address"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Submit" id="submit"></td>
+            </tr>
+        </table>
     </form>
+    <article>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum nulla voluptatem vero dolorum quod quo architecto blanditiis qui, delectus, non magnam libero magni neque quisquam facilis natus consequuntur, quaerat repellat ab ut. Cum sunt, doloremque dicta quasi architecto modi ea ex reprehenderit esse molestias exercitationem eos odit quis aut soluta.
+    </article>
 </body>
 </html>
