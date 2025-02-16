@@ -1,31 +1,14 @@
-*{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
+body{
+    margin: 5%;
 }
-h2{
-    background-color: aquamarine;
+button{
+    background-color: green;
+    border-radius: 10px;
+    color:white;
 }
-h3{
-    background-color: blueviolet;
-}
-hr{
-    border-color: pink;
-}
-p{
-    color: cornflowerblue;
-}
-div{
-    color: darkkhaki;
-}
-span{
-    background-color: yellowgreen;
-}
+button:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+    color: black;
 
-img{
-    border-radius: 15px;
-    width: 75vw;
-}
-a{
-    border: solid blue 5px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
