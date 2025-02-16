@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Form</title>
+</head>
+<body>
+    <form>
+        <label for="name">Name : </label>
+        <input type="text" id="name" name="name" >
+        <br>
+        <label for="email">Mail Address : </label>
+        <input type="email" name="email" id="email" >
+        <br>
+        <label for="phno">Phone Number : </label>
+        <input type="tel" name="phno" id="phno" >
+        <br>
+        <label for="resume">Upload resume : </label>
+        <input type="file" name="resume" id="resume">
+        <br>
+        <label for="exp">Enter Experience : </label>
+        <input type="number" name="exp" id="exp" min="2">
+        <br>
+        <fieldset>
+            <legend>Skills</legend>
+            
+            <input type="checkbox" name="checkbox" id="checkbox1">
+            <label for="checkbox1">HTML</label>
+            <br>
+            
+            <input type="checkbox" name="checkbox" id="checkbox2">
+            <label for="checkbox2">CSS</label>
+            <br>
+            
+            <input type="checkbox" name="checkbox" id="checkbox3">
+            <label for="checkbox3">JS</label>
+        </fieldset>
+        <label for="Highest Education">Studied Until : </label>
+        <select name="graduation" id="graduation" required>
+            <option value="" selected disabled hidden>Choose an option</option>
+            <option value="v1">10th Pass</option>
+            <option value="v2">12th Pass</option>
+            <option value="v3">Undergraduate</option>
+            <option value="v4">Post-graduate</option>
+            <option value="v5">Doctorate</option>
+        </select>
+
+        <br>
+        <label for="radio1">Option 1</label>
+        <input type="radio" name="radio" id="radio1">
+        <br>
+        <label for="radio2">Option 2</label>
+        <input type="radio" name="radio" id="radio2">
+        <br>
+        <textarea name="Details" id="deets" rows="5" cols="20"></textarea>
+        
+        <br>
+        <input type="submit" value="Submit Application">
+    </form>
+</body>
+</html>

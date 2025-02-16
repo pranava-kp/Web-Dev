@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJAX Example</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script10.js" defer></script>
+<style>
+    body {
+font-family: Arial, sans-serif;
+margin: 20px
+    }
+button {
+margin-right: 10px;
+}
+#text-content, #text-content-jquery, #json-content {
+border: 1px solid #ddd;
+padding: 10px;
+margin-top: 10px;
+background-color: #f9f9f9;
+}
+</style>
+</head>
+
+<body>
+    <hr>
+    <br>
+<h1>AJAX Example</h1>
+<h2>AJAX Without jQuery</h2>
+<button id="fetch-text">Fetch Text File (No jQuery)</button>
+<div id="text-content"></div>
+<h2>AJAX With jQuery</h2>
+<button id="fetch-text-jquery">Fetch Text File (With jQuery)</button>
+<div id="text-content-jquery"></div>
+<h2>JSON Example</h2>
+<button id="fetch-json">Fetch JSON Data</button>
+<div id="json-content"></div>
+<br><hr>
+</body>
+</html>

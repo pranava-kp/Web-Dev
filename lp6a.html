@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 5px;
+            font-size: medium;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button{
+            align-items: center;
+            background-color: green;
+            color:white;
+            text-align: center;
+            padding: 10px;
+            width:150px;
+            margin: 2px;
+            border-radius: 5px;
+            border:none;
+            cursor: pointer;
+        }
+        input[type=number]{
+            width: 150px;
+
+        }
+        .container{
+            width: 350px;
+            text-align: center;
+        }
+        .result{
+           margin-top: 5px;
+           font-size: 20px;
+           border: solid black 2px;
+           background-color: black;
+           color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 align="center">Calculator</h2>
+
+            
+                <input type="number" name="val1" id="val1" required>
+                <input type="number" name="val2" id="val2">
+
+            
+                <button onclick="func('SUM')">Sum</button>
+                <button onclick="func('Diff')">Difference</button>
+        
+            
+                <button onclick="func('Multiplication')">Product</button>
+                <button onclick="func('Division')">Quotient</button>
+
+            
+                <button onclick="func('Rem')">Remainder</button>
+                <button onclick="func('Power')">Power</button>
+
+            
+                <button onclick="func('sqr')">Square</button>
+                <button onclick="func('sqrt')">Square Root</button>
+
+            <div class="result" id="res">Result is : 0</div>
+    </div>
+</body>
+<script>
+    function func(opn)
+    {
+        let num1=parseFloat(document.getElementById('val1').value);
+        let num2=parseFloat(document.getElementById('val2').value);
+        let result=0;
+        switch(opn)
+        {
+            case 'SUM':
+            result=num1+num2;
+            break;
+            case 'Diff':
+            result=num1-num2;
+            break;
+            case 'Multiplication':
+            result=num1*num2;
+            break;
+            case 'Division':
+            result=num1/num2;
+            break;
+            case 'Rem':
+            result=num1%num2;
+            break;
+            case 'Power':
+            result=Math.pow(num1,num2);
+            break;
+            case 'sqr':
+            result=Math.pow(num1,2);
+            break;
+            case 'sqrt':
+            result=Math.sqrt(num1);
+            break;
+            default:
+                result=0;
+        }
+        document.getElementById("res").innerText="Result = "+result;
+    }
+</script>
+
+</html>

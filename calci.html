@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+        .calc{
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+
+        }
+        button{
+            background-color: green;
+            margin: 5px;
+            padding: 10px;
+            width: 150px;
+        }
+        button:hover
+        {
+            background-color: greenyellow;
+        }
+        input[type="text"]
+        {
+            margin: 5px;
+            padding: 10px;
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <input type="text" name="val1" id="val1">
+        <input type="text" name="val2" id="val2">
+        <button onclick="performOperation('sum')">SUM</button>
+        <button onclick="performOperation('diff')">Difference</button>
+        <button onclick="performOperation('prod')">Multiply</button>
+        <button onclick="performOperation('div')">Divide</button>
+        <h2 id="res"> Result is : 0</h2>
+    </div>
+</body>
+<script>
+    function performOperation(op)
+    {
+        let var1=parseFloat(document.getElementById('val1').value);
+        let var2=parseFloat(document.getElementById('val2').value);
+        let res=0;
+        switch(op)
+        {
+            case 'sum':
+                res=var1+var2;
+                break;
+            case 'diff':
+                res=var1-var2;
+                break;
+            case 'prod':
+                res=var1*var2;
+                break;
+            case 'div':
+                res=var1/var2;
+                break;
+            default:
+                document.getElementById('res').innerHTML="Invalid Operation";   
+        }
+        document.getElementById('res').innerHTML="Result is : "+res;
+    }
+</script>
+</html>

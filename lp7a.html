@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Operations</title>
+    <style>
+        body{
+            font-size: larger;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        button{
+            color:white;
+            padding: 5px;
+            background-color: green;
+        }
+        .res{
+            background-color: whitesmoke;
+            height: 300px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>JSON Operations</h2>
+    <div>
+        <textarea name="json1" id="json1" placeholder="{'Name':'Alice','Age':15,'DOB':'15-02-2004'}" cols=200 rows="5"></textarea>
+        <div class="res">
+            <input type="button" value="Convert JSON to Object" onclick="jsontoobj()">
+
+            <pre id="op1">Converted value appears here.</pre>
+        </div>
+        <br>
+        <div class="res" id="op2">
+            <input type="button" value="Convert JSON to Date" onclick="jsontodate()">
+
+            <pre id="op2">Converted value appears here.</pre>
+        </div>
+
+        <div class="res" id="op3">
+            <input type="button" value="Convert JSON to CSV" onclick="jsontocsv()">
+            <pre id="op3">Converted value appears here.</pre>
+        </div>
+    </div><br><br>
+    <div>
+        <textarea name="json1" id="json1" placeholder="enter CSV Value" cols=200 rows="5"></textarea>
+        <div class="res" id="op1">
+            <input type="button" value="Convert CSV to JSON" onclick="csvtojson()">
+            <br>
+            Converted value appears here.
+        </div>
+        <br>
+    </div>
+</body>
+<script>
+    function jsontoobj()
+    {
+        let str=document.getElementById("json1").value;
+        try{
+            const jsonObject = JSON.parse(str);
+            document.getElementById("op1").textContent = JSON.stringify(jsonObject, null, 4);
+        }catch(e){
+            document.getElementById("op1").textContent="Corrupted format";
+        }
+    }
+    function jsontodate()
+    {
+        const jsonText = document.getElementById("json1").value;
+                try {
+                    const jsonObject = JSON.parse(jsonText);
+                    const date = new Date(jsonObject.date); // Assuming date field in JSON
+                    document.getElementById("op2").textContent = `Converted Date: ${date}`;
+                } catch (e) {
+                    document.getElementById("op2").textContent = "Invalid JSON or missing date field.";
+                }
+    }
+    function jsontocsv()
+    {
+        let str=document.getElementById("json1").value;
+        
+    }
+</script>
+</html>

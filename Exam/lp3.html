@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+        <br>
+        <label for="phno">Phone Number</label>
+        <input type="tel" name="phno" id="phno">
+        <br>
+        <label for="age">Age: </label>
+        <input type="number" name="age" id="age" max="50" min="18">
+        <br>
+        <label for="DOB">Date of Birth</label>
+        <input type="date" name="DOB" id="DOB">
+        <br>
+        <label for="addr">Address : </label>
+        <textarea name="addr" id="addr" rows="3" cols="50"></textarea> <br>
+        <h4>Gender : </h4>
+        <label for="radio1">Male</label>
+
+        <input type="radio" name="gender" id="radio1">
+        <br>
+        <label for="option2">Female</label>
+        <input type="radio" name="gender" id="radio2">
+        <br>
+        <select name="Course" id="Course" required>
+            <option value="" selected hidden disabled >Select a Course</option>
+            <option value="CSE">Computer Science</option>
+            <option value="ISE">Information Science</option>
+            
+        </select>
+        <br>
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>

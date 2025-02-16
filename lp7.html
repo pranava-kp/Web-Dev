@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JSON Operations</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                margin: 0;
+                padding: 20px;
+            }
+            h2 {
+                color: #333;
+            }
+            label,
+            input,
+            button {
+                display: block;
+                margin: 10px 0;
+            }
+            textarea {
+                width: 100%;
+                height: 150px;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            pre {
+                background-color: #f9f9f9;
+                padding: 10px;
+                border-radius: 5px;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>JSON Operations</h2>
+        <!-- JSON to Object -->
+        <label for="jsonInput">Enter JSON Text:</label>
+        <textarea id="jsonInput" placeholder='{"name": "Alice", "age": 25, "date":"2024-09-13"}'></textarea>
+        <button onclick="convertJsonToObject()">Convert JSON to Object</button>
+        <pre id="jsonObjectOutput">JavaScript Object will appear here...</pre>
+        <!-- JSON Date Conversion -->
+        <button onclick="convertJsonToDate()">Convert JSON Date</button>
+        <pre id="jsonDateOutput">Converted Date will appear here...</pre>
+        <!-- JSON to CSV -->
+        <button onclick="convertJsonToCsv()">Convert JSON to CSV</button>
+        <pre id="csvOutput">CSV format will appear here...</pre>
+        <!-- CSV to JSON -->
+        <label for="csvInput">Enter CSV Data <br>(Ex:<br>name,age,date <br> Alice,25,2024-09-13  ):</label>
+        <textarea id="csvInput"></textarea>
+        <button onclick="convertCsvToJson()">Convert CSV to JSON</button>
+        <pre id="jsonFromCsvOutput">JSON format will appear here...</pre>
+        <!-- Hashing a String -->
+        <label for="hashStringInput">Enter String to Hash:</label>
+        <input type="text" id="hashStringInput" placeholder="Enter string to hash" />
+        <button onclick="createHash()">Create Hash</button>
+        <pre id="hashOutput">Hashed string will appear here...</pre>
+        <script>
+            // Convert JSON to JavaScript Object
+            function convertJsonToObject() {
+                const jsonText = document.getElementById("jsonInput").value;
+                try {
+                    const jsonObject = JSON.parse(jsonText);
+                    document.getElementById("jsonObjectOutput").textContent = JSON.stringify(jsonObject, null, 2);
+                } catch (e) {
+                    document.getElementById("jsonObjectOutput").textContent = "Invalid JSON format.";
+                }
+            }
+            // Convert JSON date string into a JavaScript Date object
+            function convertJsonToDate() {
+                const jsonText = document.getElementById("jsonInput").value;
+                try {
+                    const jsonObject = JSON.parse(jsonText);
+                    const date = new Date(jsonObject.date); // Assuming date field in JSON
+                    document.getElementById("jsonDateOutput").textContent = `Converted Date: ${date}`;
+                } catch (e) {
+                    document.getElementById("jsonDateOutput").textContent = "Invalid JSON or missing date field.";
+                }
+            }
+            // Convert JSON to CSV
+            function convertJsonToCsv() {
+                const jsonText = document.getElementById("jsonInput").value;
+                try {
+                    const jsonObject = JSON.parse(jsonText);
+                    const keys = Object.keys(jsonObject);
+                    const values = Object.values(jsonObject);
+                    const csv = keys.join(",") + "\n" + values.join(",");
+                    document.getElementById("csvOutput").textContent = csv;
+                } catch (e) {
+                    document.getElementById("csvOutput").textContent = "Invalid JSON format.";
+                }
+            }
+            // Convert CSV to JSON
+            function convertCsvToJson() {
+                const csvText = document.getElementById("csvInput").value;
+                try {
+                    const lines = csvText.split("\n");
+                    const keys = lines[0].split(",");
+                    const values = lines[1].split(",");
+                    const jsonObject = {};
+                    keys.forEach((key, index) => {
+                        jsonObject[key.trim()] = values[index].trim();
+                    });
+                    document.getElementById("jsonFromCsvOutput").textContent = JSON.stringify(jsonObject, null, 2);
+                } catch (e) {
+                    document.getElementById("jsonFromCsvOutput").textContent = "Invalid CSV format.";
+                }
+            }
+            // Create Hash (using a simple hashing algorithm for the browser)
+            // crypto.createHash() is Node.js specific, so we'll use a basic hash simulation here for the browser.
+            function createHash() {
+                const str = document.getElementById("hashStringInput").value;
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = (hash << 5) - hash + char;
+                    hash |= 0; // Convert to 32-bit integer
+                }
+                document.getElementById("hashOutput").textContent = "Hashed String: " + hash.toString();
+            }
+        </script>
+    </body>
+</html>

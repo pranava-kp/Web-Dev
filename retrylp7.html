@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON opns</title>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .output{
+            background-color: whitesmoke;
+            height: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h2>JSON Operations</h2>
+    <label for="jsonInput">Enter JSON Contents</label>
+    <br>
+    <textarea name="jsonInput" id="jsonInput" placeholder="{'name':'Alice','age':15,'date':'2004-09-14'}" rows="15" cols="30"></textarea> <br>
+    <button onclick="jsontoobj()">CONVERT JSON TO OBJ</button>
+    <pre id="op1" class="output">
+OBJ contents will appear here
+    </pre>
+    <button onclick="jsontodate()">CONVERT JSON TO DATE</button>
+    <pre id="op2" class="output">
+Date contents will appear here
+    </pre>
+    <button onclick="jsontocsv()">CONVERT JSON TO CSV</button>
+    <pre id="op3" class="output">
+CSV contents will appear here
+    </pre>
+    <hr>
+    <textarea name="CSVinput" id="CSVinput" rows="15" cols="30"></textarea> <br>
+    <button onclick="csvtojson()">CONVERT CSV TO JSON</button>
+    <pre id="op4" class="output">
+JSON contents will appear here
+    </pre>
+    <label for="hash"></label>
+    <input type="text" name="hash" id="hash">
+    <button onclick="hash()">HASH</button>
+    <pre id="op5" class="output">
+Hash appears here
+    </pre>
+</body>
+<script>
+    function jsontoobj()
+    {
+        const text=document.getElementById("jsonInput").value;
+        try{
+            const txt=JSON.parse(text);
+            document.getElementById("op1").textContent=JSON.stringify(txt,null,2);
+        }catch(e)
+        {
+            document.getElementById("op1").textContent="Invalid format";
+        }
+    }
+    function jsontodate()
+    {
+        let text=document.getElementById("jsonInput").value;
+        try{
+            const txt=JSON.parse(text);
+            const date=new Date(txt.date);
+            document.getElementById("op2").textContent = date;
+        }catch(e){
+            document.getElementById("op2").textContent="Invalid format";
+        }
+    }
+    function jsontocsv()
+    {
+        let text=document.getElementById("jsonInput").value;
+        try{
+            const txt=JSON.parse(text);
+            const keys=Object.keys(txt);
+            const values=Object.values(txt);
+            const str=keys.join(",")+"\n"+values.join(',');
+            document.getElementById("op3").textContent=str;
+        }
+        catch(e)
+        {
+            document.getElementById("op3").textContent="INvalid";
+        }
+    }
+    function csvtojson()
+    {
+        text=document.getElementById("CSVinput").value;
+        try{
+            const lines=text.split("\n");
+            const keys=lines[0].split(",");
+            const values=lines[1].split(",");
+            const Obj={};
+            keys.forEach((key,index) => {
+                Obj[key.trim()]=values[index].trim();
+        
+            });
+            document.getElementById("op4").textContent=JSON.stringify(Obj,null,2);
+
+        }
+        catch(e)
+        {
+            document.getElementById("op4").textContent="INvalid";
+        }
+    }
+    function hash()
+    {
+        const str=document.getElementById("hash").value;
+        let hash=0;
+        for(let i=0;i<str.length;i++)
+    {
+        const char=str.charCodeAt(i);
+        hash=(hash<<5)-hash+char;
+        hash |=0;
+        document.getElementById("op5").textContent=hash.toString();
+    }
+    }
+</script>
+</html>
