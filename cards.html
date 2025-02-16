@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(183, 209, 252);
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            /* margin: 0; */
+            
+        }
+        .card{
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            width: 400px;
+            border-radius: 25px;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 30px;
+        }
+        .card img{
+            width: 100%;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            height: 200px;
+        }
+        #text1
+        {
+            margin: 5px;
+            padding: 20px;
+        }
+        .plan
+        {
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+            background-color: deepskyblue;
+            border-radius:15px;
+            margin: 15px;
+        }
+        .plan img{
+            width: 50px;
+            height: 50px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-radius: 100%;
+        
+        }
+        .lb{
+            display: flex;
+            flex-direction: row;
+            
+        }
+        .text{
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+        }
+        .rb{
+            padding: 10px;
+            align-content: center;
+        }
+       button{
+        background-color: navy;
+        color: white;
+        font-size:medium;
+        height: 60px;
+        border-radius: 30px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        margin-bottom: 10px;
+       }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="images.jpeg">
+        <h2>Order Summary</h2>
+        <div id="text1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus autem sint cupiditate et dolore fuga iusto laborum porro temporibus doloribus.</div>
+        <div class="plan">
+            <div class="lb">
+                <div class="ima">
+                    <img src="images.jpeg">
+                </div>
+                <div class="text">
+                    <div class="t1">Amount</div>
+                    <div class="t2">₹99.99 / year</div>
+            </div>
+            </div>
+            <div class="rb">
+                <a href="">Change</a>
+            </div>
+        </div>
+        <button>
+            Proceed to Payment
+        </button>
+        <a href="">Cancel Order</a>
+    </div>
+</body>
+</html>
